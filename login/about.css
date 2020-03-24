@@ -28,15 +28,6 @@ body {
     background-color: var(--dark);
 }
 
-.hover-link {
-    /* padding: 15px; */
-}
-
-.hover-link:hover {
-    text-decoration: none;
-    background-color: #333;
-}
-
 .brand-name {
     grid-area: brand-name;
 }
@@ -66,12 +57,26 @@ body {
     border-radius: 0.3rem;
 }
 
+.hover-link {
+    /* padding: 15px; */
+}
+
+.hover-link:hover {
+    text-decoration: none;
+    background-color: #333;
+}
+
 .brand-name-text {
     text-decoration: none;
     color: var(--light);
     font-size: 2rem;
     font-family: 'Inconsolata', monospace;
     font-family: 'Pacifico', cursive;
+}
+
+.brand-name-text:hover {
+    text-decoration: none;
+    color: var(--light);
 }
 
 .brand-name {

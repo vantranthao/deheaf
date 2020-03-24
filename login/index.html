@@ -5,8 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deheaf</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="icon" href="https://scontent-hkg3-2.xx.fbcdn.net/v/t1.15752-0/p280x280/89605948_2693238447472543_812691770423902208_n.png?_nc_cat=109&_nc_sid=b96e70&_nc_ohc=9AQNzVVuRbIAX99jXuE&_nc_ht=scontent-hkg3-2.xx&oh=bc24ecb1adbe3e1c3e9afa11020f71ec&oe=5E8EF560" type="image/x-icon">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon"
+        href="https://scontent-hkg3-2.xx.fbcdn.net/v/t1.15752-0/p280x280/89605948_2693238447472543_812691770423902208_n.png?_nc_cat=109&_nc_sid=b96e70&_nc_ohc=9AQNzVVuRbIAX99jXuE&_nc_ht=scontent-hkg3-2.xx&oh=bc24ecb1adbe3e1c3e9afa11020f71ec&oe=5E8EF560"
+        type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
@@ -19,24 +27,29 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+    
 </head>
 
 <body>
     <div class="wrapper">
         <!-- header -->
         <div class="header">
-            <div class="brand-name"><a href="#" class="brand-name-text">Deheaf</a></div>
+            <div class="brand-name"><a href="#main.html" class="brand-name-text">Deheaf</a></div>
             <div class="nav-bar">
                 <ul class="bar">
-                    <button type="button" class="btn btn-dark"><a href="#main.html" class="hover-link">Home</a></button>
-                    <button type="button" class="btn btn-dark">Contact</button>
-                    <button type="button" class="btn btn-dark">About</button>
+                    <button type="button" class="btn btn-dark"><a href="./index.html" class="hover-link">Home</a></button>
+                    <!-- <button type="button" class="btn btn-dark"><a href="" class="hover-link">Contact</a></!--> 
+                    <button type="button" class="btn btn-dark"><a href="./about.html" class="hover-link">About</a></button>
+
+                    <!-- write a post -> modal box   =   START  -->
                     <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog"
                         aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header text-center">
-                                    <h4 class="modal-title w-100 font-weight-bold">Write Your Post</h4>
+                                    <h4 class="modal-title w-100 font-weight-bold">Write a Post</h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -68,12 +81,59 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="">
                         <button class="btn btn-default btn-rounded mb-4 btn-dark" data-toggle="modal"
                             data-target="#modalLoginForm">Write A
                             Post</button>
                     </div>
+                    <!-- write a post -> modal box  =  END-->
+
+
+                    <!-- modal to access   =   START-->
+                    <div class="modal fade" id="modalBox" tabindex="-1" role="dialog"
+                        aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header text-center">
+                                    <h4 class="modal-title w-100 font-weight-bold">Connect to us</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="container">
+                                    <form action="">
+                                        <div class="form-group">
+                                            <label for="text">Email:</label>
+                                            <input type="text" class="form-control" id="txt-email"
+                                                placeholder="Your email" name="txt-email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pwd">Password:</label>
+                                            <input type="password" class="form-control" id="txt-password"
+                                                placeholder="Your password" name="txt-password">
+                                        </div>
+                                        <div class="modal-footer d-flex justify-content-center">
+                                            <button type="submit" class="btn btn-primary" id="log-in">Sign in</button>
+                                            <button type="submit" class="btn btn-primary" id="sign-up">Sign up</button>
+                                            <button type="submit" class="btn btn-primary" id="logout">Log out</button>
+                                        </div>
+                                
+                                    </form>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <button class="btn btn-default btn-rounded mb-4 btn-dark" data-toggle="modal"
+                            data-target="#modalBox"> Connect us
+                        </button>
+                    </div>
+
+                    <!-- modal to access  =  END-->
+
+
 
                     <!-- <button type="button" class="btn btn-dark">
                         Write A Post
@@ -167,6 +227,25 @@
         </div>
     </div>
 
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCzHfqsndWmr8EQ6wn4LQMSdXCCwjvXyTw",
+            authDomain: "thu-thoi-9defe.firebaseapp.com",
+            databaseURL: "https://thu-thoi-9defe.firebaseio.com",
+            projectId: "thu-thoi-9defe",
+            storageBucket: "thu-thoi-9defe.appspot.com",
+            messagingSenderId: "688656425392",
+            appId: "1:688656425392:web:21199a9efd23148025b675",
+            measurementId: "G-CFD5CYBZY8"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+    <script src="app.js"></script>
 </body>
 
 </html>
