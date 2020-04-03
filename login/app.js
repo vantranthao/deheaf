@@ -36,18 +36,28 @@ btnSignup.addEventListener('click', () => {
 
 
 // log out
-btnLogout.addEventListener('click', (e) => {
-  firebase.auth().signOut();
+// btnLogout.addEventListener('click', (e) => {
+//   firebase.auth().signOut();
+// });
+
+// code anh Duc ne!
+firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+}).catch(function(error) {
+  // An error happened.
 });
+
+
 
 // realtime listeners
 // const auth = firebase.auth();
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    console.log(user)
+    console.log(user);
   } else {
     // User is signed out.
     // ...
-    console.log('not');
+    console.log('not log in yet');
+    
   }
 });
